@@ -87,7 +87,7 @@ jobs:
               with:
                 app-id: ${{ vars.APP_ID }}
                 private-key: ${{ secrets.PRIVATE_KEY }}
-                owner: ${{ vars.ORGANIZATION }}
+                owner: ${{ vars.ORGANIZATION }} # pnrorg1
 
             - name: Create repository
               id: create-repo
