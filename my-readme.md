@@ -12,3 +12,9 @@
 
 # Save the app. In your newly created app, click on Generate a private key. The private key will be automatically downloaded.
 - Paste ALL the private key, including the --BEGIN and --END...
+
+# IMPORTANT: Install the app!
+- In the​ app in GitHub, select Install App and click Install. Pick your organization or account, click install, leave All repositories selected, and click Install. 
+
+# Go back to the environment in your repository. Add a new secret PRIVATE_KEY and add the content of the key file you downloaded earlier. Also, add an APP_ID variable with the ID of your app (see Figure 5.8).
+
