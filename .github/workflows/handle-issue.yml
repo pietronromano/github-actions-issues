@@ -1,8 +1,9 @@
 name: Handle Issue
 
 on:
-  issues:
-    types: [labeled]
+  workflow_dispatch
+#  issues: COMMENT FOR NOW
+#    types: [labeled]
 
 permissions:
   contents: read
