@@ -3,21 +3,21 @@ name: issue-ops
 
 on:
   issues:
-    types: [labeled]
+    types: [labeled] #triggered when a user labels an issue
 
 jobs:
-    issue-ops:
-        if: ${{ github.event.label.name == 'repo-request' }}
+    issue-ops: # just for this label
+        if: ${{ github.event.label.name == 'repo-request' }} 
         runs-on: ubuntu-latest
         permissions:
-            issues: write
+            issues: write # needed to interact with issues
             contents: read
         outputs:
             REPO_NAME: ${{ steps.repo-request.outputs.REPO_NAME }}
         steps:
         - name: Issue Forms Body Parser
           id: parse
-          uses: zentered/issue-forms-body-parser@v2.0.0
+          uses: zentered/issue-forms-body-parser@v2.2.0
 
         - name: Repository Request Validation
           id: repo-request 
@@ -58,6 +58,7 @@ jobs:
                 exitcode=1;
             fi;
 
+            # In case the validation fails, remove the label from the issue and tell the user to fix the issue and reapply the label:
             if [ $exitcode -ne 0 ]; then
                 gh issue edit "${{ github.event.issue.number }}" --remove-label repo-request --repo "${{ github.event.repository.full_name }}"
                 message="$message Please fix the issue and try again by applying the label 'repo-request' again to the issue.";
@@ -70,7 +71,7 @@ jobs:
     create-repo:
         needs: issue-ops
         runs-on: ubuntu-latest
-        environment: repo-creation
+        environment: repo-creation # needs to be created in the GitHub UI  / CLI
         permissions:
             issues: write
             contents: read
@@ -81,7 +82,7 @@ jobs:
             ISSUE_NUMBER: ${{ github.event.issue.number }}
         steps:
             - name: Create app token
-              uses: actions/create-github-app-token@v1.6.2
+              uses: actions/create-github-app-token@v2.1.4
               id: get-workflow-token
               with:
                 app-id: ${{ vars.APP_ID }}
