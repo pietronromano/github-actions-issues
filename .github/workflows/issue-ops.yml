@@ -75,7 +75,7 @@ jobs:
         permissions:
             issues: write
             actions: write
-            contents: read
+            contents: write
         env: 
             REPO_OWNER: ${{ vars.ORGANIZATION }}
             REPO_NAME: ${{ needs.issue-ops.outputs.REPO_NAME }}
