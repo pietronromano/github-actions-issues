@@ -76,11 +76,11 @@ jobs:
             issues: write
             actions: write
             contents: write
-        env: 
-            REPO_OWNER: ${{ vars.ORGANIZATION }}
-            REPO_NAME: ${{ needs.issue-ops.outputs.REPO_NAME }}
-            ISSUE_USER: ${{ github.event.issue.user.login }}
-            ISSUE_NUMBER: ${{ github.event.issue.number }}
+        # env: 
+        #     REPO_OWNER: ${{ vars.ORGANIZATION }}
+        #     REPO_NAME: ${{ needs.issue-ops.outputs.REPO_NAME }}
+        #     ISSUE_USER: ${{ github.event.issue.user.login }}
+        #     ISSUE_NUMBER: ${{ github.event.issue.number }}
         steps:
             - name: Create with API
               run: |
