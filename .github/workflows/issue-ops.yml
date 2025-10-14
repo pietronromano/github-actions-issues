@@ -74,6 +74,7 @@ jobs:
         environment: repo-creation # needs to be created in the GitHub UI  / CLI
         permissions:
             issues: write
+            actions: write
             contents: read
         env: 
             REPO_OWNER: ${{ vars.ORGANIZATION }}
@@ -95,6 +96,7 @@ jobs:
               env: 
                 GH_TOKEN: ${{ steps.get-workflow-token.outputs.token }}
               run: |
+                  echo "GH_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
                   REPO_URL=$(gh repo create "$REPO_OWNER/$REPO_NAME" --private --clone)
                   
                   echo "repo_url=$REPO_URL" >> "$GITHUB_OUTPUT"
