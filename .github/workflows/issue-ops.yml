@@ -72,10 +72,11 @@ jobs:
         needs: issue-ops
         runs-on: ubuntu-latest
         environment: repo-creation # needs to be created in the GitHub UI  / CLI
-        permissions:
-            issues: write
-            actions: write
-            contents: write
+        permissions: 
+            write-all
+            # issues: write
+            # actions: write
+            # contents: write
         # env: 
         #     REPO_OWNER: ${{ vars.ORGANIZATION }}
         #     REPO_NAME: ${{ needs.issue-ops.outputs.REPO_NAME }}
