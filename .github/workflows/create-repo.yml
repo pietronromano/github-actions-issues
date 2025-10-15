@@ -14,9 +14,7 @@ jobs:
         runs-on: ubuntu-latest
         permissions: 
            # write-all
-            # issues: write
-            # actions: write
-            contents: write
+          contents: write # works fine for creating a repo
         steps:
             - name: Create with API
               run: |
