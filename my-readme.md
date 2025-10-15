@@ -1,10 +1,10 @@
-# RESULTS: COULDN'T CREATE REPO
-    Run REPO_URL=$(gh repo create "$REPO_OWNER/$REPO_NAME" --private --clone)
-GraphQL: Resource not accessible by integration (createRepository)
-Error: Process completed with exit code 1.
+# RESULTS: COULDN'T CREATE REPO WITH CLI & GH_TOKEN, ONLY WORKED WITH A PAT in API call
+- Run REPO_URL=$(gh repo create "$REPO_OWNER/$REPO_NAME" --private --clone)
+   GraphQL: Resource not accessible by integration (createRepository)
+   Error: Process completed with exit code 1.
 
-see: (mentions Graphql)
-- https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation#about-authentication-as-a-github-app-installation
+- see: (mentions Graphql)
+  - https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation#about-authentication-as-a-github-app-installation
 
 
 # Kaufmann, Michael. GitHub Actions Cookbook: (pp. 240-241). (Function). Kindle Edition.
